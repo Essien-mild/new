@@ -1260,3 +1260,140 @@ footer {
     .ts-stats{ padding-left:0; align-items:flex-start; margin-top:8px; }
     .ts-number{ font-size:42px; }
 }
+/* =========================================================
+   ✅ TABLETS — 768px and down
+   ========================================================= */
+@media (max-width: 768px) {
+
+  /* ---- Navbar ---- */
+  nav.main-nav .nav-links,
+  nav.main-nav .socials {
+    display: none;            /* hide links & socials */
+  }
+
+  header.navbar {
+    padding: 12px 16px;
+  }
+
+  /* Optionally keep brand centered */
+  .brand {
+    font-size: 16px;
+  }
+
+  /* Hero adjustments */
+  .hero h1 {
+    font-size: clamp(24px, 6vw, 40px);
+  }
+  .lead {
+    font-size: 14px;
+  }
+
+  /* Tracking input: stack layout */
+  .track-row {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .track-row .input-wrap {
+    width: 100%;
+  }
+  .track-row button.track-btn {
+    width: 100%;
+  }
+
+  /* Features: from 3 cols → 2 cols */
+  .features {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Pills spacing */
+  .sc-pills {
+    gap: 16px;
+  }
+
+  /* Timeline nodes reduce width */
+  .timeline-nodes {
+    gap: 28px;
+  }
+  .node {
+    width: 160px;
+  }
+
+  /* Status card: stack 2 columns */
+  .card-body {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================================================
+   ✅ SMALL MOBILE — 480px and below
+   ========================================================= */
+@media (max-width: 480px) {
+
+  /* Navbar stays hidden on mobile */
+  nav.main-nav .nav-links,
+  nav.main-nav .socials {
+    display: none !important;
+  }
+
+  /* Adjust brand */
+  .brand {
+    font-size: 15px;
+    gap: 6px;
+  }
+  .brand .logo-square {
+    width: 22px;
+    height: 22px;
+  }
+
+  /* Hero text sizing */
+  .hero h1 {
+    font-size: clamp(20px, 8vw, 34px);
+  }
+  .lead {
+    font-size: 13px;
+  }
+
+  /* Tracking input full-stack */
+  .track-row {
+    width: 100%;
+  }
+  .track-row button.track-btn {
+    width: 100%;
+    min-width: unset;
+  }
+
+  /* Section 2 image card */
+  .containers-img {
+    aspect-ratio: 16/9; /* more mobile friendly */
+  }
+
+  /* Features: 1 column */
+  .features {
+    grid-template-columns: 1fr;
+  }
+
+  /* Pills stack */
+  .pill {
+    min-width: 100%;
+    justify-content: center;
+  }
+
+  /* Timeline smaller */
+  .node {
+    width: 140px;
+  }
+
+  /* Hero-ship search row stacking */
+  .hero-ship .hero-search {
+    flex-direction: column;
+  }
+  .hero-ship .search-input,
+  .hero-ship .search-button {
+    width: 100%;
+  }
+
+  /* Hero map card shrink */
+  .hero-ship .hero-map-card {
+    height: 300px;
+  }
+}
