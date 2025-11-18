@@ -1193,11 +1193,12 @@ footer {
   .map-wrapper { width: 100% !important; max-width: 100% !important; margin: 8px auto 0; }
 
   /* third section: stacked text above media */
-  .im-container { width: 95% !important; margin-left:auto; margin-right:auto; }
-  .im-top { flex-direction: column !important; gap: 12px; }
+  .im-container { width: 100% !important; margin-left:auto; margin-right:auto; }
+  .im-top { flex-direction: column !important; 
+    gap: 12px; }
   .im-left { order: 1 !important; width: 100% !important; }
   .im-right { order: 2 !important; width: 100% !important; }
-  .im-media { order: 3 !important; width: 100% !important; margin-top: 6px; }
+  .im-media { order: 3 !important; width: 105% !important; margin-top: 6px; }
   .im-media img { width: 100% !important; height: auto !important; }
 
   /* fourth section: display only the ship image centered at 95% width */
@@ -1213,18 +1214,42 @@ footer {
     margin: 0 auto !important;
   }
 
+
+
+
+
+
+
+
+
+
   /* fifth section: text above image stack */
-  .ss-container { width: 100% !important; margin-left:auto; margin-right:auto; }
-  .ss-row { display:flex !important; flex-direction: column !important; gap: 12px; }
+  .ss-container { width: 100% !important; margin-left:1px; margin-right:1px; }
+  .ss-row { display:flex !important; flex-direction: column !important; gap: 2px; }
   .ss-left { order: 1 !important; width:100% !important; }
   .ss-right { order: 2 !important; width:100% !important; display:flex; justify-content:center; }
-  .ss-visual { width:95% !important; max-width:100% !important; }
-  .ss-visual img { width:100% !important; height:auto !important; }
+  .ss-visual { width:100000px !important; 
+    max-width:500000px; }
+  .ss-visual img { width:105% !important; height:auto !important; }
+
+
+
+
+
+
+
+
+
+
 
   /* sixth section (testimonials): cards above, stats below */
-  .ts-shell { width:100% !important; margin-left:auto; margin-right:auto; }
-  .ts-content { display:flex !important; flex-direction: column !important; gap: 12px; align-items: stretch !important; }
-  .ts-card { order:1 !important; width:100% !important; }
+  .ts-shell { width:100% !important; 
+    margin-left:auto; 
+    margin-right:auto; 
+    
+}
+  .ts-content { display:flex !important; flex-direction: column !important; }
+  .ts-card { order:1 !important; width:100% !important;}
   .ts-stats { order:2 !important; width:100% !important; display:flex !important; flex-direction:column !important; align-items:flex-start !important; }
   .ts-number { margin: 10px 0 0 0 !important; }
 
