@@ -823,7 +823,6 @@ footer {
     color: var(--white);
     position: relative;
     overflow: hidden;
-    clip-path: polygon(0 0, 100% 0, 100% 94%, 98% 100%, 0 100%);
     padding-top: 120px;
     border-top-left-radius: 28px;
     border-top-right-radius: 28px;
@@ -1130,142 +1129,206 @@ footer {
     border-radius:12px;
     pointer-events:none;
 }
-
-
-/* =========================================================
-   ✅ TABLETS — 768px and down
-   ========================================================= */
+/* === Responsive overrides: tablet (<=768px) === */
 @media (max-width: 768px) {
 
-  /* ---- Navbar ---- */
-  nav.main-nav .nav-links,
-  nav.main-nav .socials {
-    display: none;            /* hide links & socials */
+  /* Make overall content narrower and centered */
+  .shell {
+    width: 95% !important;
+    max-width: none !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
   }
 
-  header.navbar {
-    padding: 12px 16px;
-  }
-
-  /* Optionally keep brand centered */
-  .brand {
-    font-size: 16px;
-  }
-
-  /* Hero adjustments */
-  .hero h1 {
-    font-size: clamp(24px, 6vw, 40px);
-  }
-  .lead {
-    font-size: 14px;
-  }
-
-  /* Tracking input: stack layout */
-  .track-row {
-    flex-direction: column;
-    gap: 10px;
-  }
-  .track-row .input-wrap {
-    width: 100%;
-  }
-  .track-row button.track-btn {
-    width: 100%;
-  }
-
-  /* Features: from 3 cols → 2 cols */
-  .features {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  /* Pills spacing */
-  .sc-pills {
-    gap: 16px;
-  }
-
-  /* Timeline nodes reduce width */
-  .timeline-nodes {
-    gap: 28px;
-  }
-  .node {
-    width: 160px;
-  }
-
-  /* Status card: stack 2 columns */
-  .card-body {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* =========================================================
-   ✅ SMALL MOBILE — 480px and below
-   ========================================================= */
-@media (max-width: 480px) {
-
-  /* Navbar stays hidden on mobile */
-  nav.main-nav .nav-links,
-  nav.main-nav .socials {
+  /* Topbar: hide nav links and show only logo + member CTA */
+  .nav {
     display: none !important;
   }
+  .logo { display: flex !important; align-items: center; }
+  .member { display: inline-flex !important; margin-left: auto; }
 
-  /* Adjust brand */
-  .brand {
-    font-size: 15px;
-    gap: 6px;
+  /* HERO: stack heading, paragraph, then form, then images */
+  .hero-card {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 16px;
+    padding: 22px !important;
   }
-  .brand .logo-square {
-    width: 22px;
-    height: 22px;
+  .hero-title { order: 1 !important; width: 100%; }
+  .hero .hero-card > .global-card,
+  .global-card {
+    order: 2 !important;
+    position: static !important;
+    width: 95% !important;
+    max-width: 520px !important;
+    margin: 6px auto 12px auto !important;
+    left: auto !important;
+    bottom: auto !important;
+    transform: none !important;
   }
-
-  /* Hero text sizing */
-  .hero h1 {
-    font-size: clamp(20px, 8vw, 34px);
-  }
-  .lead {
-    font-size: 13px;
-  }
-
-  /* Tracking input full-stack */
-  .track-row {
-    width: 100%;
-  }
-  .track-row button.track-btn {
-    width: 100%;
-    min-width: unset;
-  }
-
-  /* Section 2 image card */
-  .containers-img {
-    aspect-ratio: 16/9; /* more mobile friendly */
-  }
-
-  /* Features: 1 column */
-  .features {
-    grid-template-columns: 1fr;
+  /* ensure the form inside the card is centered */
+  .global-card .track-form, .global-card form {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 10px !important;
+    margin: 6px 0 0 0 !important;
   }
 
-  /* Pills stack */
-  .pill {
-    min-width: 100%;
-    justify-content: center;
+  /* image cluster moved under text */
+  .image-cluster { order: 3 !important; position: static !important; margin: 12px auto 0 auto; justify-content: center !important; }
+
+  /* second section (map) : text above map */
+  .gs-container {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 12px;
+    width: 95% !important;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .gs-left { order: 1 !important; width: 100% !important; }
+  .gs-right { order: 2 !important; width: 100% !important; display:flex; justify-content:center; }
+  .map-wrapper { width: 95% !important; max-width: 100% !important; margin: 8px auto 0; }
+
+  /* third section: stacked text above media */
+  .im-container { width: 95% !important; margin-left:auto; margin-right:auto; }
+  .im-top { flex-direction: column !important; gap: 12px; }
+  .im-left { order: 1 !important; width: 100% !important; }
+  .im-right { order: 2 !important; width: 100% !important; }
+  .im-media { order: 3 !important; width: 100% !important; margin-top: 6px; }
+  .im-media img { width: 100% !important; height: auto !important; }
+
+  /* fourth section: display only the ship image centered at 95% width */
+  .tf-container { width: 95% !important; margin-left:auto; margin-right:auto; }
+  .tf-header { display: none !important; } /* hide title/description for this breakpoint */
+  .tf-point, .tf-line { display: none !important; } /* hide side points */
+  .tf-ship-wrapper { display:flex !important; justify-content:center !important; align-items:center !important; padding: 0; }
+  .tf-ship-img {
+    display: block !important;
+    width: 95% !important;
+    max-width: 95% !important;
+    height: auto !important;
+    margin: 0 auto !important;
   }
 
-  /* Timeline smaller */
-  .node {
-    width: 140px;
+  /* fifth section: text above image stack */
+  .ss-container { width: 95% !important; margin-left:auto; margin-right:auto; }
+  .ss-row { display:flex !important; flex-direction: column !important; gap: 12px; }
+  .ss-left { order: 1 !important; width:100% !important; }
+  .ss-right { order: 2 !important; width:100% !important; display:flex; justify-content:center; }
+  .ss-visual { width:95% !important; max-width:100% !important; }
+  .ss-visual img { width:100% !important; height:auto !important; }
+
+  /* sixth section (testimonials): cards above, stats below */
+  .ts-shell { width:95% !important; margin-left:auto; margin-right:auto; }
+  .ts-content { display:flex !important; flex-direction: column !important; gap: 12px; align-items: stretch !important; }
+  .ts-card { order:1 !important; width:100% !important; }
+  .ts-stats { order:2 !important; width:100% !important; display:flex !important; flex-direction:column !important; align-items:flex-start !important; }
+  .ts-number { margin: 10px 0 0 0 !important; }
+
+  /* seventh section: header above then cards in columns (2 columns) */
+  .gu-container { width:95% !important; margin-left:auto; margin-right:auto; }
+  .gu-header { order: 1 !important; width:100% !important; display:flex !important; flex-direction:column !important; align-items:flex-start !important; }
+  .gu-grid { order: 2 !important; width:100% !important; grid-template-columns: repeat(2, 1fr) !important; gap: 14px !important; }
+
+  /* footer: keep 95% width; columns and left aligned */
+  footer, .footer-top, .footer-main {
+    width: 95% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    box-sizing: border-box;
+  }
+  .footer-main { display: grid !important; grid-template-columns: repeat(2, 1fr) !important; gap: 16px !important; }
+  .footer-col, .footer-newsletter { text-align: left !important; }
+  .footer-bottom { text-align: left !important; }
+
+  /* General images fluid */
+  img { max-width: 100% !important; height: auto !important; display:block; }
+
+  /* Reduce header / footer spacing to fit narrow screens */
+  .topbar { padding: 8px 6px !important; }
+  .footer-top { padding: 36px 12px !important; border-radius: 12px !important; }
+}
+
+/* === Responsive overrides: small phones (<=480px) === */
+@media (max-width: 480px) {
+
+  /* shell width 95% mobile */
+  .shell {
+    width: 95% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding-left: 6px !important;
+    padding-right: 6px !important;
   }
 
-  /* Hero-ship search row stacking */
-  .hero-ship .hero-search {
-    flex-direction: column;
-  }
-  .hero-ship .search-input,
-  .hero-ship .search-button {
-    width: 100%;
-  }
+  /* always hide nav, keep logo + CTA */
+  .nav { display: none !important; }
+  .logo { display:flex !important; }
+  .member { display:inline-flex !important; }
 
-  /* Hero map card shrink */
-  .hero-ship .hero-map-card {
-    height: 300px;
+  /* HERO: tighter stack, form centered under the heading */
+  .hero-card {
+    padding: 14px !important;
+    gap: 12px !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
   }
+  .hero-title { font-size: 22px !important; order:1 !important; width:100% !important; }
+  .global-card {
+    order: 2 !important;
+    position: static !important;
+    width: 95% !important;
+    max-width: 100% !important;
+    margin: 12px auto !important;
+    left: auto !important;
+    bottom: auto !important;
+  }
+  .image-cluster { order: 3 !important; margin: 10px auto !important; justify-content:center !important; }
+
+  /* second section: text above map (single column) */
+  .gs-container { flex-direction: column !important; width:95% !important; }
+  .gs-left, .gs-right { width:100% !important; }
+
+  /* third section: text above image (stack) */
+  .im-top { flex-direction: column !important; }
+  .im-left, .im-right { width:100% !important; }
+  .im-media img { height: auto !important; width: 100% !important; }
+
+  /* fourth section: only image (95% width) */
+  .tf-header { display: none !important; }
+  .tf-point, .tf-line { display:none !important; }
+  .tf-ship-img { width: 95% !important; margin: 8px auto !important; display:block !important; }
+
+  /* fifth section: text above image */
+  .ss-row { flex-direction: column !important; gap: 10px !important; }
+  .ss-visual img { width:100% !important; height:auto !important; border-radius:10px !important; }
+
+  /* sixth section: testimonial card above, stats below (single column) */
+  .ts-content { flex-direction: column !important; gap:10px !important; }
+  .ts-card { order:1 !important; width:100% !important; }
+  .ts-stats { order:2 !important; width:100% !important; align-items:flex-start !important; }
+  .ts-number { font-size: 36px !important; }
+
+  /* seventh section: header above then one-column cards */
+  .gu-container { width:95% !important; }
+  .gu-header { width:100% !important; text-align:left !important; }
+  .gu-grid { grid-template-columns: 1fr !important; gap:12px !important; width:100% !important; }
+
+  /* footer: single column layout left aligned */
+  footer, .footer-main { width:95% !important; margin: 0 auto !important; }
+  .footer-main { grid-template-columns: 1fr !important; gap:12px !important; }
+  .footer-col, .footer-newsletter { text-align:left !important; padding: 0 !important; }
+  .footer-bottom { text-align:left !important; font-size:13px !important; }
+
+  /* ensure images remain fluid */
+  img { max-width:100% !important; height:auto !important; }
+
+  /* small spacing adjustments for compact screens */
+  .topbar { padding:6px 4px !important; }
+  .member { padding:6px 10px !important; font-size:13px !important; }
 }
